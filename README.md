@@ -7,20 +7,25 @@
 **O Kilo Code rodando nativo no seu Android.**
 Instala o CLI oficial, conversa com o agente e deixa ele mexer nos arquivos do celular.
 
-[![Versão](https://img.shields.io/badge/vers%C3%A3o-1.0-6C4CF1?style=for-the-badge)](https://github.com/)
+<a href="https://github.com/git-evandro/fusion-cli/releases/latest/download/fusion-cli-1.0.apk">
+<img src="https://img.shields.io/badge/BAIXAR_O_APK_v1.0-2EA043?style=for-the-badge&logo=android&logoColor=white" alt="Baixar o APK" />
+</a>
+
+[![Versão](https://img.shields.io/badge/vers%C3%A3o-1.0-6C4CF1?style=for-the-badge)](https://github.com/git-evandro/fusion-cli/releases)
 [![Open Source](https://img.shields.io/badge/open%20source-sim-2EA043?style=for-the-badge)](#licen%C3%A7a)
 [![Android](https://img.shields.io/badge/android-7.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white)](#requisitos)
 [![Kotlin](https://img.shields.io/badge/kotlin-2.2-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 
-![Demo do Fusion CLI](docs/demo.gif)
-
-</div>
-
-<p align="left">
-<img src="docs/chat.png" width="320" alt="Print da interface do Fusion CLI" />
-</p>
-
-<div align="center">
+<table>
+<tr>
+<td align="center" valign="top">
+<img src="docs/chat.png" width="300" alt="Print da interface do Fusion CLI" />
+</td>
+<td align="center" valign="top">
+<img src="docs/demo.gif" width="250" alt="Demo do Fusion CLI" />
+</td>
+</tr>
+</table>
 
 <sub>Uso real no celular: um pedido em português virou um site completo, sem tocar em um computador.</sub>
 
@@ -43,27 +48,10 @@ arquivos de um workspace real em `/sdcard/FusionCLI`.
 
 ## Do pedido ao resultado
 
-Este é um exemplo real, sem edição. O pedido foi
+As duas imagens lá em cima são dessa mesma sessão. O pedido foi
 _"crie uma página de vendas pra minha lanchonete, cor vermelha e branca"_.
 
-<table>
-<tr>
-<td width="45%" align="center" valign="top">
-<img src="docs/chat.png" width="290" alt="Chat do Fusion CLI executando ferramentas" />
-<br/>
-<sub>O agente lista o workspace, lê os arquivos que já existiam, percebe que<br/>
-são de outra loja e avisa antes de criar a página nova.</sub>
-</td>
-<td width="55%" align="center" valign="top">
-<img src="docs/demo.gif" width="240" alt="Site gerado pelo agente, rolando no navegador" />
-<br/>
-<sub>O resultado: uma página de vendas completa,<br/>
-gerada e gravada no celular.</sub>
-</td>
-</tr>
-</table>
-
-Repare na coluna da esquerda que o agente **não inventou nada**: ele leu `.a.txt`, `.head3.txt` e
+Repare no print à esquerda que o agente **não inventou nada**: ele leu `.a.txt`, `.head3.txt` e
 `.tail.txt`, rodou um comando para conferir os HTMLs existentes (`exit=0`) e só então escreveu.
 É esse ciclo de *ler → decidir → executar → verificar* que aparece no chat a cada passo.
 
