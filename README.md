@@ -4,151 +4,153 @@
 
 # Fusion CLI
 
-**O Kilo Code rodando nativo no seu Android.**
-Instala o CLI oficial, conversa com o agente e deixa ele mexer nos arquivos do celular.
+**Kilo Code running natively on your Android.**
+It installs the official CLI, talks to the agent, and lets it work on your phone's files.
+
+**English** · [Português (BR)](README.pt-BR.md)
 
 <a href="https://github.com/git-evandro/fusion-cli/releases/latest/download/fusion-cli-1.0.apk">
-<img src="https://img.shields.io/badge/BAIXAR_O_APK_v1.0-2EA043?style=for-the-badge&logo=android&logoColor=white" alt="Baixar o APK" />
+<img src="https://img.shields.io/badge/DOWNLOAD_APK_v1.0-2EA043?style=for-the-badge&logo=android&logoColor=white" alt="Download the APK" />
 </a>
 
-[![Versão](https://img.shields.io/badge/vers%C3%A3o-1.0-6C4CF1?style=for-the-badge)](https://github.com/git-evandro/fusion-cli/releases)
-[![Open Source](https://img.shields.io/badge/open%20source-sim-2EA043?style=for-the-badge)](#licen%C3%A7a)
-[![Android](https://img.shields.io/badge/android-7.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white)](#requisitos)
+[![Version](https://img.shields.io/badge/version-1.0-6C4CF1?style=for-the-badge)](https://github.com/git-evandro/fusion-cli/releases)
+[![License](https://img.shields.io/badge/license-MIT-2EA043?style=for-the-badge)](LICENSE)
+[![Android](https://img.shields.io/badge/android-7.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white)](#requirements)
 [![Kotlin](https://img.shields.io/badge/kotlin-2.2-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 
 <table>
 <tr>
 <td align="center" valign="top">
-<img src="docs/chat.png" width="300" alt="Print da interface do Fusion CLI" />
+<img src="docs/chat.png" width="300" alt="Fusion CLI chat with tool calls" />
 </td>
 <td align="center" valign="top">
-<img src="docs/demo.gif" width="250" alt="Demo do Fusion CLI" />
+<img src="docs/demo.gif" width="250" alt="Fusion CLI demo" />
 </td>
 </tr>
 </table>
 
-<sub>Uso real no celular: um pedido em português virou um site completo, sem tocar em um computador.</sub>
+<sub>Real use on a phone: one prompt in Portuguese produced a complete website, without touching a computer.</sub>
 
 </div>
 
 ---
 
-## O que é
+## What it is
 
-O Fusion CLI é um app Android que traz o **Kilo Code** — o agente de código open source da
-[Kilo Org](https://github.com/Kilo-Org/kilocode) — para dentro do celular, sem precisar de
-Termux, root ou um computador no meio do caminho.
+Fusion CLI is an Android app that brings **Kilo Code** — the open-source coding agent from
+[Kilo Org](https://github.com/Kilo-Org/kilocode) — onto the phone itself. No Termux, no root,
+no computer in the middle.
 
-O app faz o trabalho pesado que o instalador oficial não consegue fazer sozinho no Android
-(o shell padrão é `mksh`, não existe `bash` nem `curl`), baixa o binário certo pro seu aparelho
-e sobe uma interface Compose para você instalar, conversar e deixar o agente trabalhar nos
-arquivos de um workspace real em `/sdcard/FusionCLI`.
-
----
-
-## Do pedido ao resultado
-
-As duas imagens lá em cima são dessa mesma sessão. O pedido foi
-_"crie uma página de vendas pra minha lanchonete, cor vermelha e branca"_.
-
-Repare no print à esquerda que o agente **não inventou nada**: ele leu `.a.txt`, `.head3.txt` e
-`.tail.txt`, rodou um comando para conferir os HTMLs existentes (`exit=0`) e só então escreveu.
-É esse ciclo de *ler → decidir → executar → verificar* que aparece no chat a cada passo.
+The app does the heavy lifting the official installer cannot do on Android on its own (the stock
+shell is `mksh`, and there is no `bash` or `curl`), downloads the right binary for your device,
+and puts a Compose UI on top so you can install it, chat with the agent, and let it work inside a
+real workspace at `/sdcard/FusionCLI`.
 
 ---
 
-## Destaques
+## From a prompt to a result
+
+Both images above come from the same session. The prompt was
+_"build a sales page for my burger place, red and white"_.
+
+Look at the screenshot on the left: the agent **made nothing up**. It read `.a.txt`, `.head3.txt`
+and `.tail.txt`, ran a command to check the existing HTML files (`exit=0`), and only then wrote
+anything. That read → decide → run → verify loop is shown in the chat at every step.
+
+---
+
+## Highlights
 
 | | |
 |---|---|
-| **Instalação em um toque** | Baixa, valida e instala o Kilo Code oficial (`@kilocode/cli`) direto do GitHub Releases, com log ao vivo de tudo. |
-| **Agente de verdade, não só chat** | O modelo recebe 8 ferramentas e opera no filesystem: listar, ler, escrever, editar, mover, apagar, criar pastas e executar comandos de shell. |
-| **Loop de ferramentas** | Até 12 rodadas autônomas por pergunta — o agente executa, lê o resultado e continua até resolver. |
-| **Respostas em streaming** | Chat compatível com OpenAI (`stream: true`) com tool calling acumulado token a token. |
-| **19 provedores prontos** | DeepSeek, OpenAI, Anthropic, Gemini, Mistral, xAI, Groq, OpenRouter, Together, Cohere, Perplexity, Cerebras, Fireworks, Moonshot, Z.AI, Qwen, Baidu, ByteDance e o gateway do Kilo — ou qualquer endpoint compatível. |
-| **Console ao vivo** | Todo o stdout/stderr do instalador e dos comandos, com sequências ANSI limpas para ficar legível. |
-| **Instala em segundo plano** | Foreground service + notificação: você pode sair do app durante o download de ~100 MB. |
-| **Layout adaptativo** | Material 3 Expressive com `ListDetailPaneScaffold` — celular usa pilha, tablet usa dois painéis. |
+| **One-tap install** | Downloads, verifies and installs the official Kilo Code (`@kilocode/cli`) straight from GitHub Releases, streaming the whole log. |
+| **A real agent, not just chat** | The model gets 8 tools and operates on the filesystem: list, read, write, edit, move, delete, create folders, run shell commands. |
+| **Tool loop** | Up to 12 autonomous rounds per prompt — the agent runs, reads the result, and keeps going until it's done. |
+| **Streaming responses** | OpenAI-compatible chat (`stream: true`) with tool calls accumulated token by token. |
+| **19 providers built in** | DeepSeek, OpenAI, Anthropic, Gemini, Mistral, xAI, Groq, OpenRouter, Together, Cohere, Perplexity, Cerebras, Fireworks, Moonshot, Z.AI, Qwen, Baidu, ByteDance and the Kilo gateway — or any compatible endpoint. |
+| **Live console** | All stdout/stderr from the installer and from commands, with ANSI sequences stripped so it stays readable. |
+| **Installs in the background** | Foreground service plus notification: you can leave the app while the ~100 MB download runs. |
+| **Adaptive layout** | Material 3 Expressive with `ListDetailPaneScaffold` — a stack on phones, two panes on tablets. |
 
 ---
 
-## Como funciona a instalação
+## How the install works
 
-O instalador oficial assume `bash` + `curl`. No Android nenhum dos dois existe, então o app
-reimplementa o pipeline em Kotlin:
+The official installer assumes `bash` and `curl`. Neither exists on Android, so the app
+reimplements the pipeline in Kotlin:
 
 ```mermaid
 flowchart TD
-    A["Resolve a versão mais recente<br/>npm dist-tags de @kilocode/cli"] --> B{"Já instalado<br/>na mesma versão?"}
-    B -- Sim --> C["Encerra sem baixar nada"]
-    B -- Não --> D["Baixa o .tar.gz do release<br/>linux-arm64 ou linux-x64"]
-    D --> E["Extrai o binário 'kilo' do .tar.gz<br/>em Kotlin, sem depender do toybox tar"]
-    E --> F["Baixa o script oficial<br/>kilo.ai/cli/install"]
-    F --> G["Corrige o único trecho bash-only<br/>do instalador para o mksh"]
-    G --> H["sh -s -- --binary CAMINHO<br/>HOME = filesDir"]
-    H --> I["Grava .kilo/version e<br/>transmite o log em tempo real"]
+    A["Resolve the latest version<br/>npm dist-tags for @kilocode/cli"] --> B{"Already installed<br/>at that version?"}
+    B -- Yes --> C["Stop without downloading anything"]
+    B -- No --> D["Download the release .tar.gz<br/>linux-arm64 or linux-x64"]
+    D --> E["Extract the 'kilo' binary in Kotlin,<br/>without relying on toybox tar"]
+    E --> F["Download the official script<br/>kilo.ai/cli/install"]
+    F --> G["Patch the one bash-only line<br/>so mksh can parse it"]
+    G --> H["sh -s -- --binary PATH<br/>HOME = filesDir"]
+    H --> I["Write .kilo/version and<br/>stream the log in real time"]
 ```
 
-Dois detalhes que fazem isso funcionar onde outros apps quebram:
+Two details are what make this work where other apps give up:
 
-- **O `tar` do Android é o toybox**, que sai com código de erro ao tentar `chown` em arquivos do
-  usuário. Por isso o `.tar.gz` é desempacotado em Kotlin puro, lendo os headers de 512 bytes
-  direto do `GZIPInputStream`.
-- **O `mksh` valida a sintaxe do script inteiro antes de executar.** Um `[[ ... =~ ... ]]` dentro
-  de um `if` que nunca roda ainda derruba o script todo — por isso a linha é reescrita para uma
-  forma POSIX antes do `sh` receber o arquivo.
+- **Android's `tar` is toybox**, which exits non-zero when it tries to `chown` user files. So the
+  `.tar.gz` is unpacked in pure Kotlin, reading the 512-byte headers straight from a
+  `GZIPInputStream`.
+- **`mksh` parses the whole script before running it.** A `[[ ... =~ ... ]]` test inside an `if`
+  that never executes still kills the entire script — so that line is rewritten into a POSIX form
+  before `sh` ever sees the file.
 
-O que sobra é o instalador **oficial**, executado no modo `--binary` que ele já suporta. Nada de
-mirror ou build de terceiros.
+What remains is the **official** installer, run in the `--binary` mode it already supports. No
+mirror, no third-party build.
 
 ---
 
-## Ferramentas do agente
+## Agent tools
 
-O agente não responde só com texto: ele chama funções e o app executa no workspace.
+The agent doesn't just reply with text: it calls functions, and the app runs them in the workspace.
 
-| Ferramenta | O que faz |
+| Tool | What it does |
 |---|---|
-| `list_files` | Lista recursivamente tudo no workspace |
-| `read_file` | Lê um arquivo de texto |
-| `write_file` | Cria ou sobrescreve um arquivo |
-| `edit_file` | Substitui um trecho exato (com opção `replace_all`) |
-| `move_file` | Move ou renomeia arquivo/pasta |
-| `delete_file` | Apaga arquivo ou pasta (recursivo) |
-| `create_dir` | Cria pasta com os pais que faltarem |
-| `run_command` | Roda comando de shell com o workspace como diretório de trabalho |
+| `list_files` | Recursively lists everything in the workspace |
+| `read_file` | Reads a text file |
+| `write_file` | Creates or overwrites a file |
+| `edit_file` | Replaces an exact string (with a `replace_all` option) |
+| `move_file` | Moves or renames a file or folder |
+| `delete_file` | Deletes a file or folder (recursively) |
+| `create_dir` | Creates a folder, including missing parents |
+| `run_command` | Runs a shell command with the workspace as its working directory |
 
-Cada chamada aparece no chat em tempo real — _"Editando src/main.kt"_, _"Executando: ./gradlew assembleDebug"_ —
-para você acompanhar o que está sendo mexido.
+Every call shows up in the chat as it happens — _"Editing src/main.kt"_, _"Running: ./gradlew assembleDebug"_ —
+so you can follow what is being touched.
 
 ---
 
-## Telas
+## Screens
 
-| Tela | Função |
+| Screen | Purpose |
 |---|---|
-| **Dashboard** | Status do sistema, versão instalada do Kilo, botão de instalação em um toque, cópia de logs e atalhos. |
-| **Live Console** | Stream do instalador com auto-scroll e cores de terminal. |
-| **Chat with Kilo** | Conversa com streaming, escolha de provedor/modelo e visualização das chamadas de ferramenta. |
-| **Agent Workspace** | Navegação nos arquivos em `/sdcard/FusionCLI` criados pelo agente. |
+| **Dashboard** | System status, installed Kilo version, the one-tap install button, log copying and shortcuts. |
+| **Live Console** | Installer stream with auto-scroll and terminal colors. |
+| **Chat with Kilo** | Streaming conversation, provider/model selection, and visibility into tool calls. |
+| **Agent Workspace** | Browsing the files the agent created in `/sdcard/FusionCLI`. |
 
 ---
 
-## Requisitos
+## Requirements
 
-- **Android 7.0 (API 24)** ou superior
-- **Aparelho 64 bits** — os releases do Kilo são publicados só para `arm64-v8a` e `x86_64`
-- **~150 MB livres** para o download e a extração
-- Permissão de **acesso a todos os arquivos**, necessária para o workspace em `/sdcard/FusionCLI`
-- Uma **API key** de um dos provedores suportados (ou do gateway do Kilo)
+- **Android 7.0 (API 24)** or newer
+- **64-bit device** — Kilo's releases are only published for `arm64-v8a` and `x86_64`
+- **~150 MB free** for the download and extraction
+- **All files access** permission, needed for the workspace at `/sdcard/FusionCLI`
+- An **API key** for one of the supported providers (or the Kilo gateway)
 
 ---
 
-## Como compilar
+## Building
 
 ```bash
-git clone <url-do-repo>
-cd FusionCLI
+git clone https://github.com/git-evandro/fusion-cli.git
+cd fusion-cli
 
 # Windows
 gradlew.bat assembleDebug
@@ -157,58 +159,57 @@ gradlew.bat assembleDebug
 ./gradlew assembleDebug
 ```
 
-O APK sai em `app/build/outputs/apk/debug/app-debug.apk`.
+The APK lands in `app/build/outputs/apk/debug/app-debug.apk`.
 
-Requisitos de build: Android SDK com compileSdk 37, JDK 11+ e Gradle Wrapper (já incluso).
+Build requirements: Android SDK with compileSdk 37, JDK 11+, and the bundled Gradle Wrapper.
 
 ---
 
-## Estrutura do projeto
+## Project structure
 
 ```
 app/src/main/java/com/example/fusioncli/
-├── data/                  # Modelos, settings, workspace e o instalador
-│   ├── AgentTools.kt      # Schemas das ferramentas expostas ao modelo
-│   ├── InstallManager.kt  # Instalador com escopo de aplicação
+├── data/                  # Models, settings, workspace and the installer
+│   ├── AgentTools.kt      # Tool schemas exposed to the model
+│   ├── InstallManager.kt  # Application-scoped installer
 │   └── WorkspaceRepository.kt
 ├── repository/
-│   ├── CommandRepository.kt  # Pipeline de download + extração + execução
-│   └── KiloChatRepository.kt # Chat streaming com loop de ferramentas
-├── service/               # Foreground service e notificações
+│   ├── CommandRepository.kt  # Download + extract + execute pipeline
+│   └── KiloChatRepository.kt # Streaming chat with the tool loop
+├── service/               # Foreground service and notifications
 └── ui/
-    ├── chat/              # Chat, seleção de provedor e modelo
-    ├── dashboard/         # Dashboard e console ao vivo
-    ├── workspace/         # Navegador de arquivos
-    └── theme/             # Tema Material 3
+    ├── chat/              # Chat, provider and model selection
+    ├── dashboard/         # Dashboard and live console
+    ├── workspace/         # File browser
+    └── theme/             # Material 3 theme
 ```
 
 ---
 
-## Privacidade
+## Privacy
 
-O Fusion CLI **não tem servidor próprio e não coleta nada**. Ponto a ponto:
+Fusion CLI **has no server of its own and collects nothing**. Point by point:
 
-- Suas API keys ficam **só no aparelho**, em DataStore local — nunca saem para outro lugar além
-  do provedor que você configurou.
-- O agente roda comandos **dentro** de `/sdcard/FusionCLI`, com `HOME` apontando para os arquivos
-  internos do app.
-- O app fala com quatro domínios, todos oficiais: `kilo.ai`, `registry.npmjs.org`,
-  `github.com/Kilo-Org/kilocode` e a API do provedor que você escolher.
-
----
-
-## Aviso
-
-O agente executa comandos de shell de verdade e pode escrever e apagar arquivos no workspace.
-Revise as chamadas de ferramenta no chat antes de deixar o agente rodando solto em pastas com
-conteúdo importante.
+- Your API keys stay **on the device only**, in local DataStore — they never go anywhere except
+  the provider you configured.
+- The agent runs commands **inside** `/sdcard/FusionCLI`, with `HOME` pointing at the app's
+  internal files.
+- The app talks to four domains, all official: `kilo.ai`, `registry.npmjs.org`,
+  `github.com/Kilo-Org/kilocode`, and whichever provider API you choose.
 
 ---
 
-## Licença
+## Heads-up
 
-[MIT](LICENSE) — pode usar, modificar, redistribuir e vender, desde que mantenha o aviso de
-copyright.
+The agent runs real shell commands and can write to and delete files in the workspace. Review the
+tool calls in the chat before letting it loose on folders with anything important in them.
 
-O Kilo Code é um projeto independente da [Kilo Org](https://github.com/Kilo-Org/kilocode) e
-mantém a licença própria dele. O Fusion CLI é um cliente Android não oficial.
+---
+
+## License
+
+[MIT](LICENSE) — use it, modify it, redistribute it, sell it, as long as you keep the copyright
+notice.
+
+Kilo Code is an independent project from [Kilo Org](https://github.com/Kilo-Org/kilocode) and
+carries its own license. Fusion CLI is an unofficial Android client.
