@@ -14,6 +14,14 @@ Instala o CLI oficial, conversa com o agente e deixa ele mexer nos arquivos do c
 
 ![Demo do Fusion CLI](docs/demo.gif)
 
+</div>
+
+<p align="left">
+<img src="docs/chat.png" width="320" alt="Print da interface do Fusion CLI" />
+</p>
+
+<div align="center">
+
 <sub>Uso real no celular: um pedido em português virou um site completo, sem tocar em um computador.</sub>
 
 </div>
