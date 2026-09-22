@@ -207,8 +207,8 @@ conteúdo importante.
 
 ## Licença
 
-Projeto open source, versão 1.0. A licença ainda não foi definida — até então, todos os direitos
-reservados ao autor.
+[MIT](LICENSE) — pode usar, modificar, redistribuir e vender, desde que mantenha o aviso de
+copyright.
 
 O Kilo Code é um projeto independente da [Kilo Org](https://github.com/Kilo-Org/kilocode) e
 mantém a licença própria dele. O Fusion CLI é um cliente Android não oficial.
